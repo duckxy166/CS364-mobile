@@ -1,0 +1,7 @@
+<resources>
+    <string name="radius_label">Radius : </string>
+    <string name="radius_hint">e.g.,2</string>
+    <string name="area_label">Circular Area :</string>
+    <string name="button_calculate">CALCULATE</string>
+    <string name="button_clear">CLEAR</string>
+</resources>
