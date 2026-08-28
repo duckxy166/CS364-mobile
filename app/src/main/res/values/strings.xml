@@ -4,4 +4,5 @@
     <string name="area_label">Circular Area :</string>
     <string name="button_calculate">CALCULATE</string>
     <string name="button_clear">CLEAR</string>
+    <string name="image">Image</string>
 </resources>

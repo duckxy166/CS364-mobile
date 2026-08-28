@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#E5E5F0"
@@ -17,6 +18,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="92dp"
+            android:contentDescription="@string/image"
             app:srcCompat="@drawable/_48___48" />
     </LinearLayout>
 
@@ -39,8 +41,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:autofillHints=""
             android:hint="@string/radius_hint"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            tools:ignore="VisualLintTextFieldSize" />
     </LinearLayout>
 
     <LinearLayout
@@ -69,6 +73,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <!-- Added android:maxWidth="320dp" to the buttons below to resolve the render issue
+             where buttons exceed the Material Design recommended maximum width of 320dp. -->
         <Button
             android:id="@+id/buttonCalculate"
             style="@style/Widget.AppCompat.Button"
@@ -76,7 +82,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="@string/button_calculate" />
+            android:maxWidth="320dp"
+            android:text="@string/button_calculate"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/buttonClear"
@@ -85,7 +93,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="@string/button_clear" />
+            android:maxWidth="320dp"
+            android:text="@string/button_clear"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
 </LinearLayout>
