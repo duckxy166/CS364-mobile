@@ -42,7 +42,7 @@
             android:autofillHints=""
             android:hint="@string/radius_hint"
             android:imeOptions="actionDone"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             tools:ignore="VisualLintTextFieldSize,TouchTargetSizeCheck" />
     </LinearLayout>
 

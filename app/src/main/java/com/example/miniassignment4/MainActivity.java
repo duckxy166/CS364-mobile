@@ -1,6 +1,8 @@
 package com.example.miniassignment4;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,14 +27,29 @@ public class MainActivity extends AppCompatActivity {
         Button calculateButton = findViewById(R.id.buttonCalculate);
         Button clearButton = findViewById(R.id.buttonClear);
 
-        calculateButton.setOnClickListener(view -> calculateArea());
-        clearButton.setOnClickListener(view -> clearForm());
-        radiusInput.setOnEditorActionListener((view, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 calculateArea();
-                return true;
             }
-            return false;
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearForm();
+            }
+        });
+
+        radiusInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    calculateArea();
+                    return true;
+                }
+                return false;
+            }
         });
     }
 
