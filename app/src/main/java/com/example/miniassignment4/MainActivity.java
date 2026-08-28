@@ -1,39 +1,70 @@
 package com.example.miniassignment4;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private EditText radiusInput;
+    private TextView outputText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        final TextView outputText = findViewById(R.id.tvAreaResult);
-        final EditText radiusInput = findViewById(R.id.etRadius);
-        radiusInput.setOnKeyListener((view, i, keyEvent) -> {
-            if(keyEvent.getAction()==KeyEvent.ACTION_DOWN){
-                if(i==KeyEvent.KEYCODE_ENTER){
-                    if(radiusInput.getText().toString().isEmpty()){
-                        outputText.setText(getText(R.string.empty_input_warning));
-                    }else{
-                                double radius = Double.parseDouble(radiusInput.getText().toString());
-                                double area = Math.PI * radius * radius;
-                                 DecimalFormat df = new DecimalFormat( "0.0000");
-                                 outputText.setText(df.format(area));
-                    }
-                }
+
+        radiusInput = findViewById(R.id.etRadius);
+        outputText = findViewById(R.id.tvAreaResult);
+        Button calculateButton = findViewById(R.id.buttonCalculate);
+        Button clearButton = findViewById(R.id.buttonClear);
+
+        calculateButton.setOnClickListener(view -> calculateArea());
+        clearButton.setOnClickListener(view -> clearForm());
+        radiusInput.setOnEditorActionListener((view, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                calculateArea();
+                return true;
             }
             return false;
         });
+    }
 
+    private void calculateArea() {
+        String input = radiusInput.getText().toString().trim();
+        if (input.isEmpty()) {
+            radiusInput.setError(getString(R.string.empty_input_warning));
+            outputText.setText("");
+            return;
+        }
+
+        try {
+            double radius = Double.parseDouble(input);
+            if (!Double.isFinite(radius) || radius < 0) {
+                radiusInput.setError(getString(R.string.invalid_radius_warning));
+                outputText.setText("");
+                return;
+            }
+
+            double area = Math.PI * radius * radius;
+            outputText.setText(new DecimalFormat("0.0000").format(area));
+            radiusInput.setError(null);
+        } catch (NumberFormatException exception) {
+            radiusInput.setError(getString(R.string.invalid_radius_warning));
+            outputText.setText("");
+        }
+    }
+
+    private void clearForm() {
+        radiusInput.setText("");
+        radiusInput.setError(null);
+        outputText.setText("");
+        radiusInput.requestFocus();
     }
 }

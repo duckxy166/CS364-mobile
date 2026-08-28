@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="app_background">#E5E5F0</color>
     <string name="app_name">12</string>
-    <string name="area_label">Circular Area :</string>
+    <string name="area_label">Circular area:</string>
     <string name="button_calculate">CALCULATE</string>
     <string name="button_clear">CLEAR</string>
-    <string name="empty_input_warning">Empty_input_warning</string>
-    <string name="image">Image</string>
-    <string name="radius_hint">e.g.,2</string>
-    <string name="radius_label">Radius : </string>
+    <string name="empty_input_warning">Please enter a radius</string>
+    <string name="image">Area calculator illustration</string>
+    <string name="invalid_radius_warning">Enter a valid non-negative radius</string>
+    <string name="radius_hint">e.g., 2</string>
+    <string name="radius_label">Radius:</string>
     <style name="Base.Theme.MiniAssignment4" parent="Theme.Material3.DayNight.NoActionBar">
-        
-        
+        <item name="android:windowBackground">@color/app_background</item>
     </style>
     <style name="Theme.MiniAssignment4" parent="Base.Theme.MiniAssignment4"/>
 </resources>

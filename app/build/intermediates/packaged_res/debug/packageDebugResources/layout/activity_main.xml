@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#E5E5F0"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
@@ -26,7 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#E5E5F0"
         android:orientation="horizontal">
 
         <TextView
@@ -43,6 +41,7 @@
             android:layout_weight="1"
             android:autofillHints=""
             android:hint="@string/radius_hint"
+            android:imeOptions="actionDone"
             android:inputType="numberDecimal"
             tools:ignore="VisualLintTextFieldSize,TouchTargetSizeCheck" />
     </LinearLayout>

@@ -1,10 +1,8 @@
 R_DEF: Internal format may change without notice
 local
-color black
-color white
+color app_background
 drawable _48___48
 drawable ic_launcher_background
-drawable ic_launcher_foreground
 id buttonCalculate
 id buttonClear
 id etRadius
@@ -20,6 +18,7 @@ string button_calculate
 string button_clear
 string empty_input_warning
 string image
+string invalid_radius_warning
 string radius_hint
 string radius_label
 style Base.Theme.MiniAssignment4
